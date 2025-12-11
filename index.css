@@ -1,0 +1,170 @@
+
+html { font-family: 'Plus Jakarta Sans', sans-serif; }
+body { 
+  overscroll-behavior-y: none;
+  background-color: #f8fafc;
+  /* Subtle pattern for a premium feel */
+  background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+@media print {
+  body * { visibility: hidden; }
+  .printable-modal-container, .printable-modal-container * {
+    visibility: visible !important;
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  .printable-modal-container {
+    position: absolute !important;
+    inset: 0 !important;
+    background: white !important;
+    z-index: 9999 !important;
+  }
+  .no-print { display: none !important; }
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* For Dark Sidebar */
+aside .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+aside .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Command Palette (cmdk) Styles */
+[cmdk-root] {
+  max-width: 640px;
+  width: 100%;
+  padding: 8px;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  font-family: var(--font-sans);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 16px 70px rgba(0, 0, 0, 0.2);
+}
+
+.dark [cmdk-root] {
+  background: #1e293b;
+  border: 1px solid #334155;
+  box-shadow: 0 16px 70px rgba(0, 0, 0, 0.5);
+}
+
+[cmdk-overlay] {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 10vh;
+}
+
+[cmdk-input] {
+  font-family: var(--font-sans);
+  border: none;
+  width: 100%;
+  font-size: 16px;
+  padding: 16px 16px;
+  outline: none;
+  background: transparent;
+  color: #1e293b;
+  border-bottom: 1px solid #f1f5f9;
+  margin-bottom: 8px;
+}
+
+.dark [cmdk-input] {
+  color: #f1f5f9;
+  border-bottom: 1px solid #334155;
+}
+
+[cmdk-input]::placeholder {
+  color: #94a3b8;
+}
+
+[cmdk-item] {
+  content-visibility: auto;
+  cursor: pointer;
+  height: 48px;
+  border-radius: 8px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  color: #475569;
+  user-select: none;
+  will-change: background, color;
+  transition: all 150ms ease;
+  transition-property: none;
+}
+
+.dark [cmdk-item] {
+  color: #cbd5e1;
+}
+
+[cmdk-item][data-selected="true"] {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.dark [cmdk-item][data-selected="true"] {
+  background: #334155;
+  color: #fff;
+}
+
+[cmdk-item][data-disabled="true"] {
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+[cmdk-group-heading] {
+  user-select: none;
+  font-size: 10px;
+  color: #94a3b8;
+  padding: 0 8px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+[cmdk-empty] {
+  font-size: 14px;
+  text-align: center;
+  white-space: pre-wrap;
+  color: #94a3b8;
+  padding: 32px;
+}
+
+[cmdk-list] {
+  min-height: 200px;
+  height: var(--cmdk-list-height);
+  max-height: 400px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  transition: 100ms ease;
+  transition-property: height;
+}

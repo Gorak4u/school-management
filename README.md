@@ -1,3 +1,4 @@
+
 # SVS School Management Software
 
 A comprehensive, modern, and offline-capable School Management System designed for **Shree Veerbhadreshwar School, Nittur**. This application manages the entire student lifecycle, including admissions, fees, attendance, academics, transport, and communications.
@@ -39,7 +40,7 @@ A comprehensive, modern, and offline-capable School Management System designed f
 
 ---
 
-## 💻 Installation & Setup
+## 💻 Installation & Setup (Development)
 
 ### Prerequisites
 *   Node.js (LTS Version) installed on your machine.
@@ -63,35 +64,48 @@ The app will open at `http://localhost:5173`.
 
 ---
 
-## 📦 Building for Different Platforms (Windows, macOS)
+## 📦 Building Standalone Application (.exe / .dmg)
 
-This application can be packaged into a native installer for both Windows and macOS.
+To generate the installer file that you can give to the school administration:
 
-**Important Note**: To build for a specific platform (e.g., macOS), it is highly recommended to run the build command on that platform itself (i.e., use a Mac to build the `.dmg` file).
+**Important**: 
+*   To build for **Windows**, run the command on a Windows machine.
+*   To build for **macOS**, run the command on a Mac.
 
-### Build for Windows (.exe Installer)
-Run the following command in your terminal:
+### 1. Build for Windows
+This command compiles the React code and packages it into a Windows Installer (`.exe`).
+
 ```bash
 npm run electron:build:win
 ```
-The output `SVS-School-Management-Setup-X.X.X.exe` file will be located in the `dist/` folder.
 
-### Build for macOS (.dmg file)
-Run the following command in your terminal:
+**Output**: The installer file (e.g., `SVS School Management Setup 2.5.0.exe`) will be created in the `dist` folder.
+
+### 2. Build for macOS
+This command creates a Disk Image (`.dmg`).
+
 ```bash
 npm run electron:build:mac
 ```
-The output `SVS School Management-X.X.X.dmg` file will be located in the `dist/` folder.
+
+**Output**: The `.dmg` file will be created in the `dist` folder.
 
 ---
 
-## 🔐 Configuration
+## 🔐 Configuration & Usage
 
-### Google Drive Backup
-To enable cloud backups:
+### First Run
+*   The application starts with a **clean database** (no dummy students).
+*   **Default Login**:
+    *   **Username**: `admin`
+    *   **Password**: `admin123`
+*   **Demo Data**: If you want to test with sample data, go to **Settings > Data & Operations** and click "Repopulate Demo Data".
+
+### Cloud Backup
+To enable cloud backups (GitHub):
 1.  Go to **Settings > Data & Operations**.
-2.  Enter your Google Cloud **Client ID** and **API Key**.
-3.  Click "Connect to Google Drive".
+2.  Enter your **GitHub Personal Access Token** and **Repository Name**.
+3.  Click "Save Config".
 
 ### Local Auto-Backup
 1.  Go to **Settings > Data & Operations**.
